@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 *.pid
+.sqlite3
 config/database.yml
 config/mongrel_cluster.yml
 db/schema.rb
