@@ -1,0 +1,27 @@
+/*####################
+Default browser styles
+####################*/
+
+body, html{
+	margin:0;
+	padding:0;
+}
+
+body{
+}
+
+h1 { font-size:200%; }
+h2 { font-size: 150%; }
+h3 { font-size: 120%; }
+
+a img{
+	border:0;
+}
+
+/*####################
+Utilities
+####################*/
+
+.clear{
+	clear:both;
+}
