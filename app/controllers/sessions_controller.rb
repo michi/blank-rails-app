@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if logged_in?
       redirect_to root_url
     else
-      flash[:error] = "Invalid username/password combination"
+      flash.now[:error] = "Invalid username/password combination"
       render :action => "new"
     end
   end
