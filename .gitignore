@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+*.pid
+config/database.yml
+config/mongrel_cluster.yml
+db/schema.rb
+tmp/**/*
+vendor/rails
