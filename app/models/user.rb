@@ -1,6 +1,7 @@
 require "digest/sha1"
 class User < ActiveRecord::Base
   validates_uniqueness_of :username
+  validates_length_of :username, :minimum => 5
   validates_length_of :password, :minimum => 5, :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_presence_of :username, :full_name
