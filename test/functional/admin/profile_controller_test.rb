@@ -16,4 +16,13 @@ class Admin::ProfileControllerTest < ActionController::TestCase
     assert !assigns(:user).valid?
     assert_response :success
   end
+  
+  def test_reset_password
+    user = users(:august)
+    old_password = user.password_hash.dup
+    
+    post_with_session :reset_password
+    assert_not_equal user.password_hash, old_password
+    assert_redirected_to login_path
+  end
 end

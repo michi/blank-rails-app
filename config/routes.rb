@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.root :controller => "index"
-    admin.resource :profile, :controller => "profile"
+    admin.resource :profile, :controller => "profile", :member => {:reset_password => :put}
   end
   
   map.root :controller => "index"

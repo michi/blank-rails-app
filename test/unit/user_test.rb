@@ -35,7 +35,30 @@ class UserTest < ActiveSupport::TestCase
     assert_nil User.authenticate("burger", "furger")
   end
   
+  def test_generate_password_length
+    range = (5..7).to_a
+    
+    password = User.class_eval { generate_password }
+    assert range.include?(password.length)
+  end
+  
+  def test_valid_emails
+    user = users(:august)
+    %w(nissen@gmail.com super@hotmail.info alsovalid@valid.coco).each do |email|
+      user.email = email
+      assert user.save
+    end
+  end
+  
+  def test_invalid_emails
+    user = users(:august)
+    %(nissen.gmail.com nissen.gmail@com nissen@gmail failing@notvalidforreal.mururururur).each do |email|
+      user.email = email
+      assert !user.save
+    end
+  end
+  
   def create_user
-    User.create!(:username => "fail", :full_name => "Fail Failzer", :password => "failfail", :password_confirmation => "failfail")
+    User.create!(:username => "failer", :full_name => "Fail Failzer", :password => "failfail", :password_confirmation => "failfail", :email => "furgermurger@gmail.com")
   end
 end
