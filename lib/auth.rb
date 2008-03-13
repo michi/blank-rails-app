@@ -5,7 +5,7 @@ module Auth
   
   def current_user=(user_or_nil)
     @current_user = nil
-    session[:user] = user_or_nil
+    session[:user] = user_or_nil.id rescue nil
   end
   
   def logged_in?
