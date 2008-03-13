@@ -42,6 +42,17 @@ class UserTest < ActiveSupport::TestCase
     assert range.include?(password.length)
   end
   
+  def test_reset_password
+    user = users(:august)
+    old_password = user.password_hash.dup
+    
+    user.reset_password!
+    new_password = user.password
+    
+    assert_not_equal old_password, user.password_hash
+    assert User.authenticate('august', new_password)
+  end
+  
   def test_valid_emails
     user = users(:august)
     %w(nissen@gmail.com super@hotmail.info alsovalid@valid.coco).each do |email|
