@@ -1,6 +1,6 @@
-class Admin::ProfileController < Admin::IndexController
+class ProfileController < IndexController
   def show
-    redirect_to edit_admin_profile_path
+    redirect_to edit_profile_path
   end
   
   def edit
@@ -10,13 +10,13 @@ class Admin::ProfileController < Admin::IndexController
   def update
     @user = current_user
     @user.update_attributes!(params[:user])
-    redirect_to edit_admin_profile_path
+    redirect_to edit_profile_path
   end
   
   def reset_password
     @user = current_user
     @user.reset_password!
     flash[:success] = "Your password has ben reset! Instructions on how to complete the reset procedure has been sent to your e-mail address."
-    redirect_to edit_admin_profile_path
+    redirect_to edit_profile_path
   end
 end

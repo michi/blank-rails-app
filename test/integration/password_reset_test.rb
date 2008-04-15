@@ -32,14 +32,14 @@ class PasswordResetTest < ActionController::IntegrationTest
         end
         
         def shows_profile
-          get "/admin/profile"
-          assert_redirected_to edit_admin_profile_path
+          get "/profile"
+          assert_redirected_to edit_profile_path
         end
         
         def asks_for_password_reset
           old_password = @controller.current_user.password_hash.dup
           
-          get "/admin/profile/reset_password"
+          get "/profile/reset_password"
           assert_response :redirect
           assert_not_equal old_password, assigns(:user).reload.password_hash
         end

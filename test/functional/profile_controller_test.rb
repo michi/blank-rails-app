@@ -1,9 +1,9 @@
-require File.dirname(__FILE__) + '/../../test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
-class Admin::ProfileControllerTest < ActionController::TestCase
+class ProfileControllerTest < ActionController::TestCase
   def test_show
     get_with_session :show
-    assert_redirected_to edit_admin_profile_path
+    assert_redirected_to edit_profile_path
   end
   
   def test_edit
@@ -14,7 +14,7 @@ class Admin::ProfileControllerTest < ActionController::TestCase
   
   def test_successful_update
     post_with_session :update, :user => {:username => "newusername"}
-    assert_redirected_to edit_admin_profile_path
+    assert_redirected_to edit_profile_path
   end
   
   def test_failed_update
@@ -29,6 +29,6 @@ class Admin::ProfileControllerTest < ActionController::TestCase
     
     post_with_session :reset_password
     assert_not_equal user.reload.password_hash, old_password
-    assert_redirected_to edit_admin_profile_path
+    assert_redirected_to edit_profile_path
   end
 end

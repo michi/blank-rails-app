@@ -7,7 +7,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  def test_redirects_to_admin_when_logged_in
+  def test_redirects_to_root_when_logged_in
     get_with_session :new
     assert_redirected_to root_url
   end
