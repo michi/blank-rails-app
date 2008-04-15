@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => "sessions", :action => "new"
-  map.logoit 'logoit', :controller => "sessions", :action => "destroy"
+  map.logout 'logout', :controller => "sessions", :action => "destroy"
   
   map.resource :profile, :controller => "profile", :member => {:reset_password => :put}
   
