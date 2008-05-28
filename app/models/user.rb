@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
   attr_accessor :password
   
   def self.authenticate(username, password)
-    find_by_username_and_password_hash(username, hash_password(password))
+    find_by_username_and_password_hash(username, hash_password(password)) || false
+  end
+  
+  def self.find_for_password_reset(identification)
+    find_by_username(identification) || find_by_email(identification) || find_by_full_name(identification)
   end
   
   def reset_password!

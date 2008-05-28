@@ -4,6 +4,7 @@
 *.sqlite3
 config/database.yml
 config/mongrel_cluster.yml
+config/settings.yml
 db/schema.rb
 tmp/**/*
 vendor/rails

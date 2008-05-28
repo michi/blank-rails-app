@@ -3,9 +3,9 @@ module Auth
     @current_user ||= current_user_or_false
   end
   
-  def current_user=(user_or_nil)
-    @current_user = nil
-    session[:user] = user_or_nil.id rescue nil
+  def current_user=(user_or_false)
+    @current_user = user_or_false
+    session[:user] = user_or_false[:id] rescue nil
   end
   
   def logged_in?
@@ -28,6 +28,6 @@ module Auth
   private
   
   def current_user_or_false
-    session[:user] ? User.find_by_id(session[:user]) : false
+    User.find_by_id(session[:user]) || false
   end
 end

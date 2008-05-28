@@ -19,6 +19,53 @@ a img{
 }
 
 /*####################
+Errors and messages
+####################*/
+
+#system_message{
+	background: #ffc;
+  	border-bottom: 2px solid #fc0;
+	text-align:center;
+	color:#f90;
+	font-size:130%;
+	padding:1em;
+}
+
+.flash {
+  clear: both;
+  padding: 5px 5px 5px 20px;
+  margin-bottom: 20px;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
+#flash_success{
+  color: #588e03;
+  background: #e9fad9;
+  border-color: #588e03; 
+}
+
+#flash_notice{
+	border-color:#f90;
+	background-color:#ff9;
+	color:#f90;
+}
+
+#flash_error,
+.fieldWithErrors input,
+.fieldWithErrors textarea{
+  color: #c30000;
+  background: #f2dcdc;
+  border-color: #c30000;
+}
+
+.fieldWithErrors input{
+	border-width:1px;
+	border-style:solid;
+}
+
+
+/*####################
 Utilities
 ####################*/
 

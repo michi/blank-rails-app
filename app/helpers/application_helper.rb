@@ -8,4 +8,10 @@ module ApplicationHelper
   def list(items)
     content_tag(:ul, items.map{|item| content_tag(:li, yield(item))})
   end
+  
+  def unlabeled_form_for(*args, &block)
+    options = args.extract_options!
+    options[:builder] = ActionView::Helpers::FormBuilder
+    form_for(*(args << options), &block)
+  end
 end

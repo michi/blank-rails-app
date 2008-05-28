@@ -1,0 +1,4 @@
+cookie_key: '_unique_cookie_name_here'
+cookie_secret: 'should be 40 characters long and totally random'
+# system_message: "Important message that appears on top of the page"
+

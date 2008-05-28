@@ -32,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_failed_authentication
-    assert_nil User.authenticate("burger", "furger")
+    assert_equal false, User.authenticate("burger", "furger")
   end
   
   def test_generate_password_length
@@ -51,6 +51,13 @@ class UserTest < ActiveSupport::TestCase
     
     assert_not_equal old_password, user.password_hash
     assert User.authenticate('august', new_password)
+  end
+  
+  def test_find_for_password_reset
+    assert User.find_for_password_reset('august')
+    assert User.find_for_password_reset('augustlilleaas@gmail.com')
+    assert User.find_for_password_reset('August Lilleaas')
+    assert !User.find_for_password_reset('hamburger')
   end
   
   def test_valid_emails

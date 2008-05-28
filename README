@@ -1,3 +1,5 @@
 == Blank Rails app
 
-..using git. It's fun!
+== TODO
+
+* Fix password reminder. Doesn't work at all now (the tests are passing, but it's just plain silly)

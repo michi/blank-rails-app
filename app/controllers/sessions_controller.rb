@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   
   def create
     self.current_user = User.authenticate(params[:user][:username], params[:user][:password])
+
     if logged_in?
       redirect_to root_url
     else

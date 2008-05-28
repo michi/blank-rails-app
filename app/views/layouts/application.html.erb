@@ -6,6 +6,7 @@
         <%= javascript_include_tag "jquery", "application" %>
     </head>
     <body>
+	    <%= content_tag(:div, Settings["system_message"], :id => "system_message") if Settings["system_message"] %>
         <div id="wrapper">
             <div id="main">
                 <%= flashes %>
