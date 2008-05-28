@@ -3,7 +3,8 @@
     <head>
         <title></title>
         <%= stylesheet_link_tag "style" %>
-        <%= javascript_include_tag "jquery", "application" %>
+        <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js' %>
+        <%= javascript_include_tag "application" %>
     </head>
     <body>
 	    <%= content_tag(:div, Settings["system_message"], :id => "system_message") if Settings["system_message"] %>
