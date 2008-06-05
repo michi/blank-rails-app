@@ -1,2 +1,2 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+// jQuery plays nicely with Rails' respond_to (http://ozmm.org/posts/jquery_and_respond_to.html)
+$.ajaxSetup({ beforeSend: function(xhr){ xhr.setRequestHeader('Accept', 'text/javascript') } });
