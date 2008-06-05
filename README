@@ -1,5 +1,4 @@
 == Blank Rails app
 
-== TODO
+By August Lilleaas. Rails 2.1, jQuery, has authentication/password reminders.
 
-* Fix password reminder. Doesn't work at all now (the tests are passing, but it's just plain silly)
