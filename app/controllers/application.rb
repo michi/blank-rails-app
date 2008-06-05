@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   session :session_key => Settings["cookie_key"], :secret => Settings["cookie_secret"]
+  filter_parameter_logging :password
   
   
   rescue_from ActiveRecord::RecordInvalid, :with => :handle_invalid_record
