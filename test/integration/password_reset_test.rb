@@ -17,7 +17,7 @@ class PasswordResetTest < ActionController::IntegrationTest
         def visits_index
           get "/"
           assert_response :success
-          assert_template "index/index"
+          assert_template "pages/index"
         end
         
         def shows_login
