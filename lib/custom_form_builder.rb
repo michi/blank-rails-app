@@ -10,9 +10,9 @@ class CustomFormBuilder< ActionView::Helpers::FormBuilder
       label_text = options.delete(:label)
       
       if label_text == false
-        super(field, options)
+        super(field, *(args << options))
       else
-        @template.content_tag(:p, label((label_text || field)) + @template.tag(:br) + super(field, options)) 
+        @template.content_tag(:p, label((label_text || field)) + @template.tag(:br) + super(field, *(args << options))) 
       end
     end 
   end
