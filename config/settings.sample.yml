@@ -1,4 +1,0 @@
-cookie_key: '_unique_cookie_name_here'
-cookie_secret: 'generate me with "rake secret"'
-# system_message: "Important message that appears on top of the page"
-
