@@ -51,7 +51,6 @@ class ProfileControllerTest < ActionController::TestCase
     user = users(:august)
     old_password = user.password_hash.dup
     
-    # Could also use .full_name or .email
     put :reset_password, :user => {:identification => user.username}
     assert_not_equal user.reload.password_hash, old_password
     assert_redirected_to login_path
