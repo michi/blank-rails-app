@@ -18,7 +18,7 @@ class ProfileController < ApplicationController
     @user = User.new(params[:user])
     @user.save!
     self.current_user = @user
-    redirect_to root_path
+    redirect_to_stored_location_or_default root_path
   end
   
   def update

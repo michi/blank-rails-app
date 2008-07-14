@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     self.current_user = User.authenticate(params[:user][:username], params[:user][:password])
 
     if logged_in?
-      redirect_to root_url
+      redirect_to_stored_location_or_default root_url
     else
       flash.now[:error] = "Invalid username/password combination"
       render :action => "new"

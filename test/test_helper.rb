@@ -22,3 +22,30 @@ end
 
 
 ActionController::TestCase.class_eval { include ControllerTestHelper }
+
+module IntegrationTestDSL
+  def new_session(options = {}, &block)
+    open_session do |sess|
+      extensions = [DSLMethods]
+      extensions.push(options[:with]) if options[:with]
+      extensions.each {|i| sess.extend(i) }
+      
+      options[:subdomain] ||= 'www'
+      sess.host = "#{options[:subdomain]}.local.host"
+      
+      block_given? ? sess.instance_eval(&block) : sess
+    end
+  end
+  
+  module DSLMethods
+    def current_user
+      @controller.instance_eval { current_user }
+    end
+    
+    def assert_logged_in
+      assert @controller.logged_in?
+    end
+  end
+end
+
+ActionController::IntegrationTest.class_eval { include IntegrationTestDSL }

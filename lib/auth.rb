@@ -18,7 +18,12 @@ module Auth
   
   def restrict_access
     flash[:error] = "Action requires authentication."
+    store_location
     redirect_to login_url
+  end
+  
+  def redirect_to_stored_location_or_default(path)
+    redirect_to(session[:stored_location] || path)
   end
   
   def self.included(base)
@@ -29,5 +34,9 @@ module Auth
   
   def current_user_or_false
     User.find_by_id(session[:user]) || false
+  end
+  
+  def store_location
+    session[:stored_location] = request.parameters
   end
 end
