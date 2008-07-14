@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   before_save :hash_password
   
   attr_accessor :password
+  attr_readonly :username
   
   def self.authenticate(username, password)
     find_by_username_and_password_hash(username, hash_password(password)) || false
