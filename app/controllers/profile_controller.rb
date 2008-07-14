@@ -1,13 +1,24 @@
 class ProfileController < ApplicationController
-  before_filter :login_required, :except => [:forgot_password, :reset_password]
+  before_filter :login_required, :except => [:new, :create, :forgot_password, :reset_password]
   verify :method => :put, :only => :reset_password
   
   def show
     redirect_to edit_profile_path
   end
   
+  def new
+    @user = User.new
+  end
+  
   def edit
     @user = current_user
+  end
+  
+  def create
+    @user = User.new(params[:user])
+    @user.save!
+    self.current_user = @user
+    redirect_to root_path
   end
   
   def update

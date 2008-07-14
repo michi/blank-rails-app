@@ -6,10 +6,29 @@ class ProfileControllerTest < ActionController::TestCase
     assert_redirected_to edit_profile_path
   end
   
+  def test_new
+    get :new
+    assert_response :success
+    assert_template "profile/new"
+  end
+  
   def test_edit
     get_with_session :edit
     assert_response :success
     assert_equal users(:august), assigns(:user)
+  end
+  
+  def test_successful_create
+    assert_difference('User.count') do
+      post_with_session :create, :user => {:username => "newusername", :password => "12345", :password_confirmation => "12345", :full_name => 'Foo Bar', :email => 'foo@foo.com'}
+    end
+    assert_redirected_to root_path
+  end
+  
+  def test_failed_create
+    post_with_session :create, :user => {:username => "nopassword4u"}
+    assert_response :success
+    assert_template 'profile/new'
   end
   
   def test_successful_update
