@@ -54,7 +54,7 @@ class ProfileControllerTest < ActionController::TestCase
     # Could also use .full_name or .email
     put :reset_password, :user => {:identification => user.username}
     assert_not_equal user.reload.password_hash, old_password
-    assert_redirected_to forgot_password_profile_path
+    assert_redirected_to login_path
   end
   
   def test_failing_reset_password

@@ -32,7 +32,7 @@ class PasswordResetTest < ActionController::IntegrationTest
       old_password = user.password_hash.dup
       
       put "/profile/reset_password", :user => {:identification => 'august'}
-      assert_response :redirect
+      assert_redirected_to login_path
       assert_not_equal old_password, user.reload.password_hash
     end
   end
