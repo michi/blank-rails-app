@@ -1,4 +1,5 @@
 <% form_for(:user, :url => {:controller => "sessions", :action => "create"}) do |f| %>
     <%= f.text_field :username %>
     <%= f.password_field :password %>
+    <%= f.submit "Login" %>
 <% end %>
