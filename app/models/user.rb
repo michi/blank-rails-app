@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
     find_by_username_and_password_hash(username, hash_password(password)) || false
   end
   
-  def self.find_for_password_reset(identification)
-    find_by_username(identification) || find_by_email(identification) || find_by_full_name(identification)
+  def self.find_for_password_reset(query)
+    find(:first, :conditions => ["username = :query OR email = :query", {:query => query}])
   end
   
   def reset_password!
