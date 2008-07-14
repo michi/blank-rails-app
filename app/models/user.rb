@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :if => :password_required?
   validates_presence_of :username, :full_name
   validates_format_of :email, :with => /^[\w]+@[\w]+\.[\w]{1,5}$/i
+  validates_each(:password) do |record, attribute, value|
+    record.errors.add(attribute, 'can not be the same as the username') if value == record.username
+  end
   before_save :hash_password
   
   attr_accessor :password

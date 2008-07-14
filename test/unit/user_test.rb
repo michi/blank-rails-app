@@ -76,7 +76,22 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
-  def create_user
-    User.create!(:username => "failer", :full_name => "Fail Failzer", :password => "failfail", :password_confirmation => "failfail", :email => "furgermurger@gmail.com")
+  def test_password_matching_username
+    user = new_user(:username => 'matching', :password => 'matching', :password_confirmation => 'matching')
+    assert !user.valid?
+    assert user.errors.on(:password)
+  end
+  
+  private
+  
+  def new_user(options = {})
+    options.reverse_merge!(:username => "failer", :full_name => "Fail Failzer", :password => "failfail", :password_confirmation => "failfail", :email => "furgermurger@gmail.com")
+    User.new(options)
+  end
+  
+  def create_user(options = {})
+    u = new_user(options)
+    u.save
+    u
   end
 end
