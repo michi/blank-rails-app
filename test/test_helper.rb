@@ -1,7 +1,6 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
-Settings['password_salt'] = '12345%s12345'
 
 class Test::Unit::TestCase
   self.use_transactional_fixtures = true

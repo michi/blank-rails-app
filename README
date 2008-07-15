@@ -1,13 +1,13 @@
 == Blank Rails app
 
-An alternative to the Rails command. Contains basic stuff that you're most likely going to need in all of your applications.
+An alternative to the Rails command. Contains basic stuff such as user authentication, static pages etc. that you're most likely 
+going to need in all of your applications.
 
 == TODO when creating a new app
 
-    * Run rake app:init to create config/database.yml and config/settings.yml.
-    * Change the password salt in config/settings.yml. Be sure to include "%s" somewhere in there, as that's where the password
-      is inserted in the salt prior to hashing it. FYI: Changing this salt causes the tests to fail, as there's a users.yml fixture
-      that uses a hashed password generated from the default 12345%12345 salt. I should probably fix this.
+    * Run rake app:init to create config/database.yml and config/settings.yml. It also creates a users.yml fixture, with an
+      appropriately salted password hash.
+    * Run rake test to make sure all the tests pass. Do inform me if they don't ; )
 
 == Static pages
 
