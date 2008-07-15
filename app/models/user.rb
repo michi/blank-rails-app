@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   private
   
   def self.hash_password(password)
-    Digest::SHA1.hexdigest("/-#{password}-/")
+    Digest::SHA1.hexdigest(Settings["password_salt"] % password)
   end
   
   def self.generate_password

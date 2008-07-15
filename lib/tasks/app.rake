@@ -17,6 +17,7 @@ namespace :app do
     end    
     settings["cookie_secret"] = %x{rake secret}.split("\n")[1]
     settings["system_message"] = ""
+    settings["password_salt"] = "12345%12345"
     
     settings_path = File.join(Rails.root, 'config', 'settings.yml')
     File.delete(settings_path) if File.file?(settings_path)
