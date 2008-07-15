@@ -2,3 +2,4 @@
 
 By August Lilleaas. Rails 2.1, jQuery, has authentication/password reminders.
 
+Use rake app:init to create config/database.yml and config/settings.yml.
