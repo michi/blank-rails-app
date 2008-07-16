@@ -5,9 +5,10 @@ going to need in all of your applications.
 
 ## TODO when creating a new app
 
-* Run rake app:init to create config/database.yml and config/settings.yml. It also creates a users.yml fixture, with an
+* Run rake app:init. It creates config/database.yml and config/settings.yml. It also creates a users.yml fixture, with an
   appropriately salted password hash.
-* Run rake test to make sure all the tests pass. Do inform me if they don't ; )
+* Run rake db:migrate.
+* Run rake test to make sure all the tests pass.
 
 ## Static pages
 
