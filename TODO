@@ -1,0 +1,1 @@
+* Making jQuery call .js on actions instead of setting the accept header.
