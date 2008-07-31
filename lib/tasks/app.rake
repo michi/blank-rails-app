@@ -12,6 +12,9 @@ namespace :app do
     
     create_settings_dot_yml
     create_user_fixture
+    
+    puts ">> Migrating the database.."
+    Rake::Task["db:migrate"].invoke
   end
   
   def create_settings_dot_yml
