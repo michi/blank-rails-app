@@ -1,4 +1,4 @@
-class CustomFormBuilder< ActionView::Helpers::FormBuilder
+class CustomFormBuilder < ActionView::Helpers::FormBuilder
   helpers = field_helpers + 
     %w(date_select datetime_select time_select) + 
     %w(collection_select select country_select time_zone_select) - 
