@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProfileControllerTest < ActionController::TestCase
+class ProfilesControllerTest < ActionController::TestCase
   def test_show
     get_with_session :show
     assert_redirected_to edit_profile_path
@@ -9,7 +9,7 @@ class ProfileControllerTest < ActionController::TestCase
   def test_new
     get :new
     assert_response :success
-    assert_template "profile/new"
+    assert_template "profiles/new"
   end
   
   def test_edit
@@ -28,7 +28,7 @@ class ProfileControllerTest < ActionController::TestCase
   def test_failed_create
     post_with_session :create, :user => {:username => "nopassword4u"}
     assert_response :success
-    assert_template 'profile/new'
+    assert_template 'profiles/new'
   end
   
   def test_successful_update
@@ -59,6 +59,6 @@ class ProfileControllerTest < ActionController::TestCase
   def test_failing_reset_password
     put :reset_password, :user => {:identification => 'farbl'}
     assert_response :success
-    assert_template 'profile/forgot_password'
+    assert_template 'profiles/forgot_password'
   end
 end

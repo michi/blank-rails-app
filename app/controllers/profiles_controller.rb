@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   before_filter :login_required, :except => [:new, :create, :forgot_password, :reset_password]
   verify :method => :put, :only => :reset_password
   
